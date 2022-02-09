@@ -9,11 +9,18 @@ int main()
   std::cout << numOfLines;
   for(int i = 0; i < numOfLines; i++)
   {
-    std::string in;
-    std::getline(std::cin, in);
-    std::stringstream command;
-    command << in;
-    std::cout << command.str() << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream inputStream(input);
+
+    std::string command;
+    inputStream >> command;
+
+    std::string next;
+    getline(inputStream, next, '"');
+    
+    std::cout << command << std::endl;
   }
   return 0;
 }
