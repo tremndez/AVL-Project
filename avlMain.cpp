@@ -13,7 +13,6 @@ int main()
     std::getline(std::cin, in);
     std::stringstream command;
     command << in;
-    std::getline(command, in, "\"");
     std::cout << command.str() << std::endl;
   }
   return 0;
