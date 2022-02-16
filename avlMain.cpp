@@ -1,26 +1,37 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include "avl.h"
 
 int main()
 {
-  int numOfLines;
-  std::cin >> numOfLines;
-  std::cout << numOfLines;
-  for(int i = 0; i < numOfLines; i++)
-  {
-    std::string input;
-    std::getline(std::cin, input);
+  AVL *obj = new AVL;
+  Node *root = nullptr;
+  obj->Interface();
 
-    std::stringstream inputStream(input);
+  std::string input = "Yuh";
 
-    std::string command;
-    inputStream >> command;
+  int num = 2;
+  root = obj->Insert(root, input, num);
+  num = 1;
+  root = obj->Insert(root, input, num);
 
-    std::string next;
-    getline(inputStream, next, '"');
-    
-    std::cout << command << std::endl;
-  }
+  num = 3;
+  root = obj->Insert(root, input, num);
+
+  num = 4;
+  root = obj->Insert(root, input, num);
+
+  num = 5;
+  root = obj->Insert(root, input, num);
+
+  // num = 6;
+  // root = obj->Insert(root, input, num);
+  int sum = 4;
+  obj->Preorder(root);
+  std::cout << std::endl;
+  obj->Delete(root, sum);
+  obj->Preorder(root);
+
   return 0;
 }
